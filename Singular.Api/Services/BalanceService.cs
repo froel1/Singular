@@ -47,6 +47,8 @@ namespace Singular.Api.Services
 
             // increase balance to destination
             var increaseResult = destination.IncreaseBalance(model.Amount, model.TransactionId);
+
+            // transaction completed successfully
             if (increaseResult == ErrorCode.Success)
                 return;
 
@@ -56,16 +58,32 @@ namespace Singular.Api.Services
             if (increaseResult == ErrorCode.UnknownError)
             {
                 var transactionResult = destination.CheckTransaction(model.TransactionId);
+                // transaction completed successfully
                 if (transactionResult == ErrorCode.Success)
                     return;
 
                 increaseResult = transactionResult;
             }
 
+            // destination error, rollback source
             var rollbackResult = source.Rollback(model.TransactionId);
             if (rollbackResult == ErrorCode.Success)
                 throw new ApiValidationException(increaseResult);
 
+            if (rollbackResult == ErrorCode.UnknownError)
+            {
+                var rollbackTransactionResult = source.CheckTransaction(model.TransactionId);
+                if (rollbackTransactionResult == ErrorCode.Success ||
+                    rollbackTransactionResult == ErrorCode.TransactionAlreadyMarkedAsRollback)
+                {
+                    throw new ApiValidationException(increaseResult);
+                }
+
+                //this should not happen
+                throw new ApiValidationException(rollbackTransactionResult);
+            }
+
+            //this should not happen
             throw new ApiValidationException(rollbackResult);
         }
     }
