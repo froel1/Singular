@@ -51,7 +51,7 @@ namespace Singular.Api.Helpers
 
             if (!_env.IsProduction())
             {
-                //problem.StackTrace = exception.StackTrace;//TODO:test
+                problem.StackTrace = exception.StackTrace;
             }
 
             var result = JsonSerializer.Serialize(problem);
