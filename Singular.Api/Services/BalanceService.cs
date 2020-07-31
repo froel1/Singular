@@ -67,6 +67,8 @@ namespace Singular.Api.Services
 
             // destination error, rollback source
             var rollbackResult = source.Rollback(model.TransactionId);
+
+            // rollback successfully, transaction canceled
             if (rollbackResult == ErrorCode.Success)
                 throw new ApiValidationException(increaseResult);
 
@@ -76,6 +78,7 @@ namespace Singular.Api.Services
                 if (rollbackTransactionResult == ErrorCode.Success ||
                     rollbackTransactionResult == ErrorCode.TransactionAlreadyMarkedAsRollback)
                 {
+                    // rollback successfully, transaction canceled
                     throw new ApiValidationException(increaseResult);
                 }
 
