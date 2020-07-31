@@ -8,11 +8,11 @@ namespace Singular.Api.Helpers
         public static HttpStatusCode ToHttpStatusCode(this ErrorCode code) => code switch
         {
             ErrorCode.Success => HttpStatusCode.OK,
-            ErrorCode.TransactionRejected => HttpStatusCode.InternalServerError,
-            ErrorCode.NotEnoughtBalance => HttpStatusCode.InternalServerError,
-            ErrorCode.DuplicateTransactionId => HttpStatusCode.InternalServerError,
-            ErrorCode.TransactionNotFound => HttpStatusCode.InternalServerError,
-            ErrorCode.TransactionAlreadyMarkedAsRollback => HttpStatusCode.InternalServerError,
+            ErrorCode.TransactionRejected => HttpStatusCode.BadRequest,
+            ErrorCode.NotEnoughtBalance => HttpStatusCode.PreconditionFailed,
+            ErrorCode.DuplicateTransactionId => HttpStatusCode.Conflict,
+            ErrorCode.TransactionNotFound => HttpStatusCode.BadRequest,
+            ErrorCode.TransactionAlreadyMarkedAsRollback => HttpStatusCode.Conflict,
             ErrorCode.TransactionRollbacked => HttpStatusCode.InternalServerError,
             ErrorCode.UnknownError => HttpStatusCode.InternalServerError,
             _ => HttpStatusCode.InternalServerError
