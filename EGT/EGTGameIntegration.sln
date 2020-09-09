@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singular.CorePlatform.Game.EGT", "Singular.CorePlatform.Game.EGT\Singular.CorePlatform.Game.EGT.csproj", "{D8A5D87A-236F-4CDC-A996-EA5E9E5E5DEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{33BD4134-0E5D-4B86-A96C-89DF828242B4}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Dockerfile = Dockerfile
+		Jenkinsfile = Jenkinsfile
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singular.CorePlatform.Game.EGT.Core", "Singular.CorePlatform.Game.EGT.Core\Singular.CorePlatform.Game.EGT.Core.csproj", "{1A6CE58E-8247-47C2-9B2D-7D47ADECED7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8A5D87A-236F-4CDC-A996-EA5E9E5E5DEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A5D87A-236F-4CDC-A996-EA5E9E5E5DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A5D87A-236F-4CDC-A996-EA5E9E5E5DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A5D87A-236F-4CDC-A996-EA5E9E5E5DEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A6CE58E-8247-47C2-9B2D-7D47ADECED7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6CE58E-8247-47C2-9B2D-7D47ADECED7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6CE58E-8247-47C2-9B2D-7D47ADECED7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6CE58E-8247-47C2-9B2D-7D47ADECED7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9B7FA37-84D5-4AF8-BA9B-EE0867F23A72}
+	EndGlobalSection
+EndGlobal

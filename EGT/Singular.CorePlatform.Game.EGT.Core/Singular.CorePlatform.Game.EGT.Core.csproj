@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Singular.CorePlatform.Adapter" Version="7.0.6" />
+    <PackageReference Include="Singular.CorePlatform.Common" Version="4.14.4" />
+    <PackageReference Include="Singular.CorePlatform.FreeSpinsLib" Version="2.1.0" />
+    <PackageReference Include="Singular.CorePlatform.Games" Version="3.0.0" />
+    <PackageReference Include="Singular.CorePlatform.Persistence" Version="4.2.0" />
+  </ItemGroup>
+
+</Project>

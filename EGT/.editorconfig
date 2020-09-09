@@ -1,0 +1,302 @@
+# EditorConfig is awesome: http://EditorConfig.org
+# Version 1.0.1
+
+# top-most EditorConfig file
+root = true
+
+# Don't use tabs for indentation.
+[*]
+indent_style = space
+trim_trailing_whitespace = true
+
+# Code files
+[*.cs]
+indent_size = 4
+
+# JSON files
+[*.json]
+indent_size = 2
+
+# .NET code style settings
+[*.{cs,vb}]
+
+# Avoid "this." and "Me." if not necessary
+dotnet_style_qualification_for_field = false:error
+dotnet_style_qualification_for_property = false:error
+dotnet_style_qualification_for_method = false:error
+dotnet_style_qualification_for_event = false:error
+
+# Use language keywords instead of framework type names for type references
+dotnet_style_predefined_type_for_locals_parameters_members = true:error
+dotnet_style_predefined_type_for_member_access = true:error
+
+# Use access modifiers in preferred order
+dotnet_style_require_accessibility_modifiers = always:error
+csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:error
+dotnet_style_readonly_field = true:error
+
+# Prefer parantheses to clarify operator precedence
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:error
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:silent
+
+# Use modern language features when available
+dotnet_style_object_initializer = true:error
+dotnet_style_collection_initializer = true:error
+dotnet_style_explicit_tuple_names = true:error
+dotnet_style_prefer_inferred_tuple_names = true:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_style_prefer_auto_properties = true:error
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:error
+dotnet_style_prefer_conditional_expression_over_assignment = true:suggestion
+dotnet_style_prefer_conditional_expression_over_return = true:suggestion
+dotnet_style_prefer_compound_assignment = true:suggestion
+dotnet_style_coalesce_expression = true:error
+dotnet_style_null_propagation = true:error
+
+# .NET code quality settings
+[*.{cs,vb}]
+
+dotnet_code_quality_unused_parameters = all:error
+
+# CSharp code style settings
+[*.cs]
+
+# Prefer "var" everywhere
+csharp_style_var_for_built_in_types = true:error
+csharp_style_var_when_type_is_apparent = true:error
+csharp_style_var_elsewhere = true:suggestion
+
+# Prefer method-like constructs to have a block body
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_constructors = false:silent
+csharp_style_expression_bodied_operators = false:silent
+
+# Prefer property-like constructs to have an expression-body
+csharp_style_expression_bodied_properties = true:silent
+csharp_style_expression_bodied_indexers = true:silent
+csharp_style_expression_bodied_accessors = true:silent
+
+# Prefer lambdas to have an expression-body
+csharp_style_expression_bodied_lambdas = true:silent
+
+# Prefer local functions to have a block body
+csharp_style_expression_bodied_local_functions = false:silent
+
+# Use modern language features when available
+csharp_style_pattern_matching_over_is_with_cast_check = true:error
+csharp_style_pattern_matching_over_as_with_null_check = true:error
+csharp_style_inlined_variable_declaration = true:error
+csharp_prefer_simple_default_expression = true:error
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:error
+csharp_prefer_braces = false:error
+csharp_style_unused_value_expression_statement_preference = discard_variable:silent
+csharp_style_unused_value_assignment_preference = discard_variable:suggestion
+csharp_style_prefer_index_operator = true:suggestion
+csharp_style_prefer_range_operator = true:suggestion
+csharp_style_deconstructed_variable_declaration = true:suggestion
+csharp_style_pattern_local_over_anonymous_function = true:error
+csharp_using_directive_placement = outside_namespace:error
+csharp_prefer_static_local_function = true:error
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_style_prefer_switch_expression = true:suggestion
+
+# .NET formatting settings
+[*.{cs,vb}]
+
+dotnet_sort_system_directives_first = false
+dotnet_separate_import_directive_groups = false
+
+# CSharp formatting settings
+[*.cs]
+
+# New-line options
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+# Indentation options
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = flush_left
+csharp_indent_block_contents = true
+csharp_indent_braces = false
+csharp_indent_case_contents_when_block = true
+
+# Spacing options
+csharp_space_after_cast = false
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_between_parentheses = false
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_around_binary_operators = before_and_after
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_declaration_name_and_open_parenthesis = false
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_after_comma = true
+csharp_space_before_comma = false
+csharp_space_after_dot = false
+csharp_space_before_dot = false
+csharp_space_after_semicolon_in_for_statement = true
+csharp_space_before_semicolon_in_for_statement = false
+csharp_space_around_declaration_statements = false
+csharp_space_before_open_square_brackets = false
+csharp_space_between_empty_square_brackets = false
+csharp_space_between_square_brackets = false
+
+# Wrapping options
+csharp_preserve_single_line_statements = false
+csharp_preserve_single_line_blocks = true
+
+# .NET naming conventions
+[*.{cs,vb}]
+
+# Kinds of symbols
+# Namespace
+dotnet_naming_symbols.namespace.applicable_kinds                                = namespace
+dotnet_naming_symbols.namespace.applicable_accessibilities                      = *
+
+# Class
+dotnet_naming_symbols.class.applicable_kinds                                    = class
+dotnet_naming_symbols.class.applicable_accessibilities                          = *
+
+# Struct
+dotnet_naming_symbols.struct.applicable_kinds                                   = struct
+dotnet_naming_symbols.struct.applicable_accessibilities                         = *
+
+# Interface
+dotnet_naming_symbols.interface.applicable_kinds                                = interface
+dotnet_naming_symbols.interface.applicable_accessibilities                      = *
+
+# Enum
+dotnet_naming_symbols.enum.applicable_kinds                                     = enum
+dotnet_naming_symbols.enum.applicable_accessibilities                           = *
+
+# Property
+dotnet_naming_symbols.property.applicable_kinds                                 = property
+dotnet_naming_symbols.property.applicable_accessibilities                       = *
+
+# Method
+dotnet_naming_symbols.method.applicable_kinds                                   = method
+dotnet_naming_symbols.method.applicable_accessibilities                         = *
+
+# Async method
+dotnet_naming_symbols.async_method.applicable_kinds                             = method
+dotnet_naming_symbols.async_method.applicable_accessibilities                   = *
+dotnet_naming_symbols.async_method.required_modifiers                           = async
+
+# Constant fields
+dotnet_naming_symbols.constant_field.applicable_kinds                           = field
+dotnet_naming_symbols.constant_field.applicable_accessibilities                 = *
+dotnet_naming_symbols.constant_field.required_modifiers                         = const
+
+# Public or protected field
+dotnet_naming_symbols.public_protected_field.applicable_kinds                   = field
+dotnet_naming_symbols.public_protected_field.applicable_accessibilities         = public,protected
+
+# Private or internal field
+dotnet_naming_symbols.private_internal_field.applicable_kinds                   = field
+dotnet_naming_symbols.private_internal_field.applicable_accessibilities         = private,internal
+
+# Private or internal static field
+dotnet_naming_symbols.private_internal_static_field.applicable_kinds            = field
+dotnet_naming_symbols.private_internal_static_field.applicable_accessibilities  = private,internal
+dotnet_naming_symbols.private_internal_static_field.required_modifiers          = static
+
+# Event
+dotnet_naming_symbols.event.applicable_kinds                                    = event
+dotnet_naming_symbols.event.applicable_accessibilities                          = *
+
+# Delegate
+dotnet_naming_symbols.delegate.applicable_kinds                                 = delegate
+dotnet_naming_symbols.delegate.applicable_accessibilities                       = *
+
+# Parameter
+dotnet_naming_symbols.parameter.applicable_kinds                                = parameter
+dotnet_naming_symbols.parameter.applicable_accessibilities                      = *
+
+# Types
+dotnet_naming_symbols.types.applicable_kinds                                    = namespace,class,struct,interface,enum
+dotnet_naming_symbols.types.applicable_accessibilities                          = *
+
+# Non-field members
+dotnet_naming_symbols.non_field_members.applicable_kinds                        = property,method,event
+dotnet_naming_symbols.non_field_members.applicable_accessibilities              = *
+
+# Naming styles
+# Pascal case
+dotnet_naming_style.pascal_casing.capitalization                                = pascal_case
+
+# Camel case
+dotnet_naming_style.camel_casing.capitalization                                 = camel_case
+
+# Begins with I
+dotnet_naming_style.begins_with_i.required_prefix                               = I
+dotnet_naming_style.begins_with_i.capitalization                                = pascal_case
+
+# Ends with Async
+dotnet_naming_style.ends_with_async.required_suffix                             = Async
+dotnet_naming_style.ends_with_async.capitalization                              = pascal_case
+
+# Begins with underscore
+dotnet_naming_style.begins_with_underscore.required_prefix                      = _
+dotnet_naming_style.begins_with_underscore.capitalization                       = camel_case
+
+# Begins with s_
+dotnet_naming_style.begins_with_s.required_prefix                               = s_
+dotnet_naming_style.begins_with_s.capitalization                                = camel_case
+
+# Naming rules
+# Types must use PascalCasing
+dotnet_naming_rule.types_must_use_pascal_casing.symbols                         = types
+dotnet_naming_rule.types_must_use_pascal_casing.style                           = pascal_casing
+dotnet_naming_rule.types_must_use_pascal_casing.severity                        = error
+
+# Non-field members must use PascalCasing
+dotnet_naming_rule.non_field_members_must_use_pascal_casing.symbols             = non_field_members
+dotnet_naming_rule.non_field_members_must_use_pascal_casing.style               = pascal_casing
+dotnet_naming_rule.non_field_members_must_use_pascal_casing.severity            = error
+
+# Constants must use PascalCasing
+dotnet_naming_rule.constants_must_use_pascal_casing.symbols                     = constant_field
+dotnet_naming_rule.constants_must_use_pascal_casing.style                       = pascal_casing
+dotnet_naming_rule.constants_must_use_pascal_casing.severity                    = error
+
+# Public and protected fields must use PascalCasing
+dotnet_naming_rule.public_fields_must_use_pascal_casing.symbols                 = public_protected_field
+dotnet_naming_rule.public_fields_must_use_pascal_casing.style                   = pascal_casing
+dotnet_naming_rule.public_fields_must_use_pascal_casing.severity                = error
+
+# Private and internal static fields must begin with s_
+dotnet_naming_rule.private_static_fields_must_begin_with_s.symbols              = private_internal_static_field
+dotnet_naming_rule.private_static_fields_must_begin_with_s.style                = begins_with_s
+dotnet_naming_rule.private_static_fields_must_begin_with_s.severity             = error
+
+# Private and internal fields must begin with underscore
+dotnet_naming_rule.pricate_fields_must_begin_with_underscore.symbols            = private_internal_field
+dotnet_naming_rule.pricate_fields_must_begin_with_underscore.style              = begins_with_underscore
+dotnet_naming_rule.pricate_fields_must_begin_with_underscore.severity           = error
+
+# Interfaces must begin with I
+dotnet_naming_rule.interfaces_must_begin_with_i.symbols                         = interface
+dotnet_naming_rule.interfaces_must_begin_with_i.style                           = begins_with_i
+dotnet_naming_rule.interfaces_must_begin_with_i.severity                        = error
+
+# Async methods must end with Async
+dotnet_naming_rule.async_methods_must_end_with_async.symbols                    = async_method
+dotnet_naming_rule.async_methods_must_end_with_async.style                      = ends_with_async
+dotnet_naming_rule.async_methods_must_end_with_async.severity                   = error
+
+# Parameters must use camelCasing
+dotnet_naming_rule.parameters_must_use_camel_casing.symbols                     = parameter
+dotnet_naming_rule.parameters_must_use_camel_casing.style                       = camel_casing
+dotnet_naming_rule.parameters_must_use_camel_casing.severity                    = error

@@ -1,0 +1,50 @@
+@Library('singular-shared-pipeline') _
+
+def buildFunc = {
+    config ->
+        // Build and publish project
+		sh "nuget restore"
+        sh "dotnet restore --no-cache"
+        
+        sh "dotnet build -c Release -o bin/publish"
+        sh "dotnet publish -c Release -o bin/publish"
+
+        // Build and publish Docker image
+        def filename = "${config.DOCKER_CONTAINER_NAME}:${config.RELEASE_VERSION}"
+
+        sh "docker build -t ${config.DOCKER_REPO_NAMESPACE}/${filename} ."
+        sh "docker push ${config.DOCKER_REPO_NAMESPACE}/${filename}"
+        sh "docker rmi ${config.DOCKER_REPO_NAMESPACE}/${filename}"
+
+        // Return ProjectFiles
+        writeFile file: "info.txt", text: "CONTAINER_NAME=${config.DOCKER_CONTAINER_NAME}\nRELEASE_VERSION=${config.RELEASE_VERSION}\nJIRA_VERSION=${config.JIRA_VERSION}\nPORT=${config.DOCKER_CONTAINER_EXTERNAL_PORT}\nDOCKER_PORT=${config.DOCKER_CONTAINER_INTERNAL_PORT}"
+
+        def ret = [:]
+        ret['ProjectFiles'] = "info.txt"
+
+        return ret
+}
+
+sharedMultiBranchPipeline {
+    NODE_TYPE = 'web'
+    PROJECT_NAME = // Configure user-friendly project name
+    DOCKER_REPO_NAMESPACE = 'singulargroup'
+    DOCKER_CONTAINER_NAME = 'game-egt'
+    DOCKER_CONTAINER_EXTERNAL_PORT = // Configure external port
+    DOCKER_CONTAINER_INTERNAL_PORT = 80
+    DEPLOYMENT_REPO = 'sis-deployment-scripts'
+    DEPLOYMENT_PLAYBOOK = 'deploy-swarm.yml'
+	ANSIBLE_ROLE = ['deploy-swarm']
+    PROJECT_KEY = 'game'
+    VAULT_KEY = 'sis'
+    SLACK_CHANNEL = 'core_deployments'
+    NOTIFY_EMAIL = 'core@singular.uk'
+
+    ExtraVars = [container_port: DOCKER_CONTAINER_EXTERNAL_PORT, project_name:'none', health_url:'actuator/health'] // add_env_params='true' adds environment parameters in docker container
+
+    configFunction = { }
+    buildFunction = buildFunc
+    unitTestFunction = { }
+    integrationTestFunction = { }
+	overrideExtraVarsPerDeploymentFunction = { }
+}
